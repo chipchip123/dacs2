@@ -1,0 +1,12 @@
+.star-yellow { color: #ffc107; }
+.star-gray { color: #e2e3e5; }
+
+.review-comment {
+    max-height: 120px;
+    overflow-y: auto;
+}
+
+.alert-info {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+}

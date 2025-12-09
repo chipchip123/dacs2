@@ -1,0 +1,21 @@
+# quy đổi giữa php với sql 
+| 🧠 Eloquent (PHP)                                                     | 🧮 SQL tương ứng                                 | 💬 Giải thích           |
+| --------------------------------------------------------------------- | ------------------------------------------------ | ----------------------- |
+| `Product::all()`                                                      | `SELECT * FROM products;`                        | Lấy toàn bộ sản phẩm    |
+| `Product::find(5)`                                                    | `SELECT * FROM products WHERE id = 5;`           | Tìm theo ID             |
+| `Product::where('price', '>', 100000)->get();`                        | `SELECT * FROM products WHERE price > 100000;`   | Lọc theo điều kiện      |
+| `Product::where('name', 'like', '%gà%')->get();`                      | `SELECT * FROM products WHERE name LIKE '%gà%';` | Tìm gần đúng            |
+| `Product::orderBy('price', 'desc')->get();`                           | `SELECT * FROM products ORDER BY price DESC;`    | Sắp xếp giảm dần        |
+| `Product::limit(5)->get();`                                           | `SELECT * FROM products LIMIT 5;`                | Giới hạn số dòng        |
+| `Product::take(5)->get();`                                            | `SELECT * FROM products LIMIT 5;`                | (Giống limit)           |
+| `Product::skip(10)->take(5)->get();`                                  | `SELECT * FROM products OFFSET 10 LIMIT 5;`      | Bỏ qua 10 dòng, lấy 5   |
+| `Product::count();`                                                   | `SELECT COUNT(*) FROM products;`                 | Đếm số bản ghi          |
+| `Product::avg('price');`                                              | `SELECT AVG(price) FROM products;`               | Trung bình giá          |
+| `Product::max('price');`                                              | `SELECT MAX(price) FROM products;`               | Lớn nhất                |
+| `Product::min('price');`                                              | `SELECT MIN(price) FROM products;`               | Nhỏ nhất                |
+| `Product::sum('price');`                                              | `SELECT SUM(price) FROM products;`               | Tổng                    |
+| `Product::create([...]);`                                             | `INSERT INTO products (...) VALUES (...);`       | Thêm mới                |
+| `$p = Product::find(5); $p->delete();`                                | `DELETE FROM products WHERE id = 5;`             | Xóa                     |
+| `$p = Product::find(5); $p->update([...]);`                           | `UPDATE products SET ... WHERE id = 5;`          | Cập nhật                |
+| `Product::with('reviews')->get();`                                    | `SELECT * FROM products LEFT JOIN reviews ...;`  | Join bảng khác          |
+| `Product::whereHas('reviews', fn($q)=>$q->where('rating',5))->get();` | `JOIN + WHERE reviews.rating=5`                  | Lọc theo bảng liên quan |

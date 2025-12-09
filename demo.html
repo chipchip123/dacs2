@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>UC1 – Đăng ký tài khoản</title>
+<style>
+  body { font-family: Arial, sans-serif; background: #f9f9f9; margin: 0; padding: 0; }
+  header { background: #34495e; color: #fff; text-align: center; padding: 12px; }
+  main { display: flex; padding: 20px; }
+  .form-box {
+    flex: 1;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 6px rgba(0,0,0,0.15);
+    padding: 20px;
+  }
+  .note-box {
+    width: 35%;
+    background: #fef9e7;
+    margin-left: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 5px solid #f39c12;
+    font-size: 14px;
+  }
+  label { display: block; margin-top: 10px; }
+  input, select {
+    width: 95%; padding: 6px; margin-top: 5px;
+    border: 1px solid #ccc; border-radius: 4px;
+  }
+  button {
+    margin-top: 15px; padding: 8px 15px;
+    background: #3498db; color: white;
+    border: none; border-radius: 4px; cursor: pointer;
+  }
+  button:hover { background: #2980b9; }
+</style>
+</head>
+<body>
+
+<header>
+  <h2>UC1 – Đăng ký tài khoản</h2>
+  <p>Use Case: Tạo mới tài khoản nhân viên / quản lý</p>
+</header>
+
+<main>
+  <div class="form-box">
+    <h3>🧾 Form Đăng ký</h3>
+    <label>Họ và tên</label>
+    <input type="text" placeholder="Nhập họ tên">
+
+    <label>Email</label>
+    <input type="email" placeholder="ví dụ: abc@domain.com">
+
+    <label>Mật khẩu</label>
+    <input type="password" placeholder="Ít nhất 8 ký tự, có chữ hoa & ký tự đặc biệt">
+
+    <label>Chức vụ</label>
+    <select>
+      <option>Nhân viên phục vụ</option>
+      <option>Thu ngân</option>
+      <option>Bếp</option>
+      <option>Quản lý</option>
+    </select>
+
+    <button>Đăng ký</button>
+  </div>
+
+  <div class="note-box">
+    <h4>📌 Ghi chú / Luồng xử lý</h4>
+    <ol>
+      <li><b>txtUserID</b>: Không được bỏ trống, kiểm tra định dạng email.</li>
+      <li><b>txtPassword</b>: Bắt buộc ≥ 8 ký tự, có chữ hoa, ký tự đặc biệt.</li>
+      <li><b>btnRegister</b>: Khi nhấn → kiểm tra hợp lệ → lưu vào CSDL.</li>
+      <li>Hệ thống gửi <b>Email xác thực</b> → người dùng phải xác nhận trong 24h.</li>
+      <li>Nếu không xác thực trong 24h → tài khoản bị tạm khóa.</li>
+    </ol>
+  </div>
+</main>
+
+</body>
+</html>
